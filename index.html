@@ -71,6 +71,7 @@
         <input type="text" placeholder="Serial CODE">
         <button onclick="login(event)">Submit</button>
     </div>
+    <a id="gagal" href="https://bakolai-free.vercel.app"></a>
     <script>
         function login(event){
             event.preventDefault();
@@ -82,11 +83,11 @@
                 const url = users[0].url1;
                 console.log(url)
 
-                const prem1 = users.find(user => user.code1 === code );
+                const prem1 = users.find(user => user.code === code );
                 if(prem1) {
                     window.location.href = url;
                 } else {
-                    alert('Login gagal');
+                    location.reload();
                 }
             })
         }
