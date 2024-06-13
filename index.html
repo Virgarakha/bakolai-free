@@ -83,7 +83,7 @@
                 const url = users[0].url1;
                 console.log(url)
 
-                const prem1 = users.find(user => user.code === code );
+                const prem1 = users.find(user => user.codeI === code );
                 if(prem1) {
                     window.location.href = url;
                 } else {
