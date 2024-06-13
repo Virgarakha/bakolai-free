@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>introduce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="navbox">
+            <div class="logo">
+                <img src="/asset/img/nova.png" alt="">
+            </div>
+            <li class="login"><a href="#loginn">Login</a></li>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="bannerbox">  
+        <p>05 June 2024</p>
+        <img src="asset/img/nova.png" alt="">
+        <div class="btn">
+            <li><a href="https://bakolaifree.vercel.app"><span>Try Free -></span></a></li>
+            <li><a href="https://wa.me/6281333794278">Get Premium -></a></li>
+        </div>
+        <div class="img">
+            <img src="asset/img/ai.jpg" alt="">
+        </div>
+        </div>
+    </div>
+    <div class="about">
+        <div class="aboutbox">
+            <h1>Nova Ai</h1>
+            <p>We’ve trained a model called Nova Ai, which interacts in a conversational way. The dialogue format makes it possible for Nova Ai to answer followup questions, admit its mistakes, challenge incorrect premises, and reject inappropriate requests.
+
+                Nova Ai is a sibling model to InstructNova, which is trained to follow an instruction in a prompt and provide a detailed response.
+                
+                We are excited to introduce ChatGPT to get users’ feedback and learn about its strengths and weaknesses. During the research preview, usage of Nova Ai is free. Try it now</p>
+        </div>
+    </div>
+
+    <div id="prem" class="prem">
+        <img src="asset/img/nova.png" alt="">
+        <div class="prembox">
+            <div class="premitem">
+                <h1>Free</h1>
+                <p>❌Copy text</p>
+                <p>❌Code output</p>
+                <p>✔ English only</p>
+                <p>❌Tampilan 10/10</p>
+                <p>✔ Text Chat</p>
+                <p>✔ Ai Mid spek</p>
+                <p>✔ 7b data</p>
+            </div>
+            <div class="premitem">
+                <h1>Premium</h1>
+                <p>✔ Copy text</p>
+                <p>✔ Code output</p>
+                <p>✔ Inonesia Language</p>
+                <p>✔ Tampilan 10/10</p>
+                <p>✔ Text Chat</p>
+                <p>✔ Ai Faster spek</p>
+                <p>✔ 8b data</p>
+            </div>
+        </div>
+    </div>
+    <div class="text">
+        <h1>Login Premium</h1>
+    </div>
+    <div id="loginn" class="logined">
+        <input type="text" placeholder="Serial CODE">
+        <button onclick="login(event)">Submit</button>
+    </div>
+    <script>
+        function login(event){
+            event.preventDefault();
+            fetch('list_user.json')
+            .then(response => response.json())
+            .then(data => {
+                const users = data;
+                const code = document.querySelector('input[type="text"]').value;
+                const url = users[0].url1;
+                console.log(url)
+
+                const prem1 = users.find(user => user.code === code );
+                if(prem1) {
+                    window.location.href = url;
+                } else {
+                    alert('Login gagal');
+                }
+            })
+        }
+    </script>
+</body>
+</html>
